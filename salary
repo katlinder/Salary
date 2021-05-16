@@ -1,0 +1,85 @@
+using System;
+
+namespace Netopalk
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Write your monthly income");
+            double brutoSalary = Convert.ToDouble(Console.ReadLine());
+
+
+
+            if (brutoSalary >= 501 && brutoSalary <= 1200)
+            {
+                Range500to1200(brutoSalary);
+            }
+            if (brutoSalary >= 1201 && brutoSalary <= 2100)
+            {
+                Range1201to2100(brutoSalary);
+            }
+            if (brutoSalary >= 2101)
+            {
+                Range2101andUp(brutoSalary);
+            }
+        }
+        static void Range500to1200(double brutoSalary)
+        {
+
+            double unemploymentInsurance = brutoSalary * 0.016;
+            double pensionFund = brutoSalary * 0.02;
+            double incomeTax = (brutoSalary - unemploymentInsurance - pensionFund - 500) * 0.2;
+
+            double netoSalary = brutoSalary - unemploymentInsurance - pensionFund - incomeTax;
+
+
+            Console.WriteLine("PensionFund: ");
+            Console.WriteLine(pensionFund);
+            Console.WriteLine("UnemploymentInsurance: ");
+            Console.WriteLine(unemploymentInsurance);
+            Console.WriteLine("IncomeTax: ");
+            Console.WriteLine(incomeTax);
+            Console.WriteLine("NetoSalary: ");
+            Console.WriteLine(netoSalary);
+
+
+        }
+        static void Range1201to2100(double brutoSalary)
+        {
+            double unemploymentInsurance = brutoSalary * 0.016;
+            double pensionFund = brutoSalary * 0.02;
+            double incomeTaxreduction = 500 - 500 / 900 * (brutoSalary - 1200);
+            double incomeTax = (brutoSalary - unemploymentInsurance - pensionFund - incomeTaxreduction) * 0.2;
+
+            double netoSalary = brutoSalary - unemploymentInsurance - pensionFund - incomeTax;
+            
+            Console.WriteLine("PensionFund: ");
+            Console.WriteLine(pensionFund);
+            Console.WriteLine("UnemploymentInsurance: ");
+            Console.WriteLine(unemploymentInsurance);
+            Console.WriteLine("IncomeTax: ");
+            Console.WriteLine(incomeTax);
+            Console.WriteLine("NetoSalary: ");
+            Console.WriteLine(netoSalary);
+        }
+        static void Range2101andUp(double brutoSalary)
+        {
+            double unemploymentInsurance = brutoSalary * 0.016;
+            double pensionFund = brutoSalary * 0.02;
+            double incomeTax = (brutoSalary - unemploymentInsurance - pensionFund ) * 0.2;
+
+            double netoSalary = brutoSalary - unemploymentInsurance - pensionFund - incomeTax;
+
+            Console.WriteLine("PensionFund: ");
+            Console.WriteLine(pensionFund);
+            Console.WriteLine("UnemploymentInsurance: ");
+            Console.WriteLine(unemploymentInsurance);
+            Console.WriteLine("IncomeTax: ");
+            Console.WriteLine(incomeTax);
+            Console.WriteLine("NetoSalary: ");
+            Console.WriteLine(netoSalary);
+        }
+}
+}
+
